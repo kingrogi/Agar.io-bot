@@ -657,11 +657,10 @@ function AposBot() {
 
         var endMark = this.getAngleIndex(newListToUse, range[1][0]);
         var endBool = endMark.mod(2) != startIndex;
-
+  var secureDistance = (enemyCanSplit ? splitDangerDistance : normalDangerDistance);
         var removeList = [];
 
-        if (startMark != endMark) {
-            //Note: If there is still an error, this would be it.
+            if (this.computeDistance(allPossibleThreats[i].x, allPossibleThreats[i].y, clusterAllFood[j][0], clusterAllFood[j][1]) < secureDistance + shiftDistance)
             var biggerList = 0;
             if (endMark == newListToUse.length) {
                 biggerList = 1;
